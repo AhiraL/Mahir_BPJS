@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: Text(
         'Welcome to BPJSku',
-        style: TextStyle(fontSize: 28.0, color: Colors.white),
+        style: TextStyle(fontSize: 28.0, color: Colors.black),
       ),
     );
 
@@ -25,19 +25,13 @@ class HomePage extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: Text(
         'oioioioioioioioioioioii',
-        style: TextStyle(fontSize: 16.0, color: Colors.white),
+        style: TextStyle(fontSize: 16.0, color: Colors.black),
       ),
     );
 
     final body = Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(28.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Colors.blue,
-          Colors.lightBlueAccent,
-        ]),
-      ),
       child: Column(
         children: <Widget>[alucard, welcome, lorem],
       ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mahir_bpjs/home_page.dart';
 import 'package:mahir_bpjs/login_page.dart';
+import 'package:mahir_bpjs/new_member.dart';
+import 'package:mahir_bpjs/new_user.dart';
 
 
 class SplashPage extends StatefulWidget {
@@ -27,9 +30,13 @@ class _SplashPageState extends State <SplashPage> {
             children: [
               Image.asset(
                 "assets/icons/icon_new_member.jpeg",),
-              Text(
-                'PENDAFTARAN PESERTA BARU',
-                style: TextStyle(fontSize: 18.0, color: Colors.black),
+              FlatButton(
+                child: Text(
+                  'PENDAFTARAN PESERTA BARU',
+                  style: TextStyle(fontSize: 16.0, color: Colors.black),
+                  textAlign: TextAlign.center,
+                ),
+                onPressed: () {Navigator.of(context).pushNamed(MemberPage.tag);},
               ),
             ],
           ),
@@ -41,9 +48,13 @@ class _SplashPageState extends State <SplashPage> {
             children: [
               Image.asset(
                 "assets/icons/icon_new_user.jpeg",),
-              Text(
-                'PENDAFTARAN USER BARU',
-                style: TextStyle(fontSize: 18.0, color: Colors.black),
+              FlatButton(
+                child: Text(
+                  'PENDAFTARAN USER BARU',
+                  style: TextStyle(fontSize: 16.0, color: Colors.black),
+                  textAlign: TextAlign.center,
+                ),
+                onPressed: () {Navigator.of(context).pushNamed(UserPage.tag);},
               ),
             ],
           ),

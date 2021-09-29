@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mahir_bpjs/home_page.dart';
+import 'package:mahir_bpjs/splashscreen.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -10,13 +11,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/icons/icon_account.png'),
-      ),
+    final logo = Padding(
+      padding: EdgeInsets.only(bottom: 20.0),
+      child: new Image.asset('assets/images/img_splash_header.jpeg'),
     );
 
     final email = TextFormField(
@@ -70,6 +67,15 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {},
     );
 
+    final daftarLabel = FlatButton(
+      child: Text(
+        'Daftar Akun',
+        style: TextStyle(color: Colors.black54),
+        textAlign: TextAlign.right,
+      ),
+      onPressed: () {Navigator.of(context).pushNamed(SplashPage.tag);},
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -84,7 +90,8 @@ class _LoginPageState extends State<LoginPage> {
             password,
             SizedBox(height: 24.0),
             loginButton,
-            forgotLabel
+            forgotLabel,
+            daftarLabel,
           ],
         ),
       ),

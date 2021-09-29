@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mahir_bpjs/home_page.dart';
 import 'package:mahir_bpjs/login_page.dart';
 import 'package:mahir_bpjs/splashscreen.dart';
+import 'package:mahir_bpjs/new_member.dart';
+import 'package:mahir_bpjs/new_user.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +14,8 @@ class MyApp extends StatelessWidget {
     SplashPage.tag: (context) => SplashPage(),
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
+    MemberPage.tag: (context) => MemberPage(),
+    UserPage.tag: (context) => UserPage(),
   };
   // This widget is the root of your application.
   @override
