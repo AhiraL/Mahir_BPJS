@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mahir_bpjs/detail_page.dart';
 import 'package:mahir_bpjs/home_page.dart';
+import 'package:mahir_bpjs/list_berita.dart';
 import 'package:mahir_bpjs/login_page.dart';
 import 'package:mahir_bpjs/splashscreen.dart';
 import 'package:mahir_bpjs/new_member.dart';
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
     HomePage.tag: (context) => HomePage(),
     MemberPage.tag: (context) => MemberPage(),
     UserPage.tag: (context) => UserPage(),
+    ListBerita.tag: (context) => ListBerita(),
+    DetailPage.tag: (context) => DetailPage(),
   };
   // This widget is the root of your application.
   @override

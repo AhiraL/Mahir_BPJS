@@ -34,7 +34,9 @@ class _SplashPageState extends State <SplashPage> {
                   child: Image.asset('assets/icons/icon_new_member.jpeg'),
                 ),
                 onTap: () {
-                  {Navigator.of(context).pushNamed(UserPage.tag);};
+                  {
+                    Navigator.of(context).pushNamed(MemberPage.tag);
+                  };
                 },
               ),
               Text(
@@ -56,7 +58,9 @@ class _SplashPageState extends State <SplashPage> {
                 child: Image.asset('assets/icons/icon_new_user.jpeg'),
               ),
               onTap: () {
-                {Navigator.of(context).pushNamed(UserPage.tag);};
+                {
+                  Navigator.of(context).pushNamed(UserPage.tag);
+                };
               },
             ),
               Text(
@@ -81,7 +85,12 @@ class _SplashPageState extends State <SplashPage> {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          onPressed: () {Navigator.of(context).pushNamed(LoginPage.tag);},
+          onPressed: () {
+            // Navigator.of(context).pushNamed(LoginPage.tag);
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
+              return LoginPage();
+            }));
+            },
           child: Text(
             "SIGN IN",
             style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mahir_bpjs/home_page.dart';
 import 'package:mahir_bpjs/splashscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -14,6 +15,13 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController Cont1 = new TextEditingController();
   TextEditingController Cont2 = new TextEditingController();
   String textholder = '';
+
+  prefLogin(String username, String password) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('username', username);
+    await prefs.setString('password', username);
+  }
+
   @override
   Widget build(BuildContext context) {
     final logo = Padding(
@@ -80,13 +88,18 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             if (_formKey.currentState!.validate()) {
               if(Cont1.text == 'mahir' && Cont2.text == '123') {
-                Navigator.of(context).pushNamed(HomePage.tag);
+                // Navigator.of(context).pushNamed(HomePage.tag);
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
+                  return HomePage();
+                }));
+                prefLogin(Cont1.text, Cont2.text);
               } else {
                 setState(() {
                   textholder = 'Email/Password Salah!';
                 });
               }
             }
+            prefLogin(Cont1.text, Cont2.text);
           },
           child: Text(
             "Login",
