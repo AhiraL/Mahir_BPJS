@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mahir_bpjs/list_berita.dart';
 
 class HomePage extends StatefulWidget {
   static String tag = 'home-page';
@@ -51,10 +52,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[alucard, welcome, lorem],
       ),
     ),
-    Text(
-      "Screen 2",
-      style: TextStyle(fontSize: 30),
-    ),
+    ListBerita(),
     Text(
     "Screen 3",
     style: TextStyle(fontSize: 30),
@@ -70,7 +68,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
+          BottomNavigationBarItem(icon: Icon(Icons.article), label: 'News'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
         ],
         currentIndex: this.currentScreen,
