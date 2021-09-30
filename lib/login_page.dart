@@ -9,6 +9,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  bool login = false;
+  TextEditingController Cont1 = new TextEditingController();
+  TextEditingController Cont2 = new TextEditingController();
+  String textholder = '';
   @override
   Widget build(BuildContext context) {
     final logo = Padding(
@@ -17,8 +22,18 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
+      controller: Cont1,
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          setState(() {
+            textholder = '';
+          });
+          return 'Email wajib diisi';
+        }
+        return null;
+      },
       decoration: InputDecoration(
         hintText: 'Username',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -27,13 +42,28 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final password = TextFormField(
+      controller: Cont2,
       autofocus: false,
       obscureText: true,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          setState(() {
+            textholder = '';
+          });
+          return 'Password wajib diisi';
+        }
+        return null;
+      },
       decoration: InputDecoration(
         hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
+    );
+
+    final validation = Text(
+      textholder,
+      style: TextStyle(color: Colors.red),
     );
 
     final loginButton = Padding(
@@ -47,7 +77,17 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          onPressed: () {Navigator.of(context).pushNamed(HomePage.tag);},
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              if(Cont1.text == 'mahir' && Cont2.text == '123') {
+                Navigator.of(context).pushNamed(HomePage.tag);
+              } else {
+                setState(() {
+                  textholder = 'Email/Password Salah!';
+                });
+              }
+            }
+          },
           child: Text(
             "Login",
             style: TextStyle(
@@ -78,7 +118,9 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
+      body: Form(
+        key: _formKey,
+        child: Center(
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -90,11 +132,13 @@ class _LoginPageState extends State<LoginPage> {
             password,
             SizedBox(height: 24.0),
             loginButton,
+            validation,
             forgotLabel,
             daftarLabel,
           ],
         ),
       ),
+      )
     );
   }
 }

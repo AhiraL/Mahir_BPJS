@@ -24,37 +24,45 @@ class _SplashPageState extends State <SplashPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 170.0,
+          width: 150.0,
           padding: EdgeInsets.all(5.0),
           child: Column(
             children: [
-              Image.asset(
-                "assets/icons/icon_new_member.jpeg",),
-              FlatButton(
-                child: Text(
-                  'PENDAFTARAN PESERTA BARU',
-                  style: TextStyle(fontSize: 16.0, color: Colors.black),
-                  textAlign: TextAlign.center,
+              InkWell(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset('assets/icons/icon_new_member.jpeg'),
                 ),
-                onPressed: () {Navigator.of(context).pushNamed(MemberPage.tag);},
+                onTap: () {
+                  {Navigator.of(context).pushNamed(UserPage.tag);};
+                },
+              ),
+              Text(
+                'Pendaftaran Peserta Baru',
+                style: TextStyle(fontSize: 16.0, color: Colors.black),
+                textAlign: TextAlign.center,
               ),
             ],
           ),
         ),
         Container(
-          width: 170.0,
+          width: 150.0,
           padding: EdgeInsets.all(5.0),
           child: Column(
             children: [
-              Image.asset(
-                "assets/icons/icon_new_user.jpeg",),
-              FlatButton(
-                child: Text(
-                  'PENDAFTARAN USER BARU',
-                  style: TextStyle(fontSize: 16.0, color: Colors.black),
-                  textAlign: TextAlign.center,
-                ),
-                onPressed: () {Navigator.of(context).pushNamed(UserPage.tag);},
+              InkWell(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Image.asset('assets/icons/icon_new_user.jpeg'),
+              ),
+              onTap: () {
+                {Navigator.of(context).pushNamed(UserPage.tag);};
+              },
+            ),
+              Text(
+                'Pendaftaran User Baru',
+                style: TextStyle(fontSize: 16.0, color: Colors.black),
+                textAlign: TextAlign.center,
               ),
             ],
           ),

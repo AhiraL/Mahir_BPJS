@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   static String tag = 'home-page';
+  @override
+  _HomePageState createState() => new _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentScreen = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +43,44 @@ class HomePage extends StatelessWidget {
       ),
     );
 
+    List<Widget> listScreen = [
+    Container(
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.all(28.0),
+      child: Column(
+        children: <Widget>[alucard, welcome, lorem],
+      ),
+    ),
+    Text(
+      "Screen 2",
+      style: TextStyle(fontSize: 30),
+    ),
+    Text(
+    "Screen 3",
+    style: TextStyle(fontSize: 30),
+    ),
+    ];
+
     return Scaffold(
-      body: body,
+      body: listScreen.elementAt(currentScreen),
+      bottomNavigationBar:
+      BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
+        ],
+        currentIndex: this.currentScreen,
+        selectedItemColor: Colors.amber,
+        onTap: (int index) {
+          setState(() {
+            this.currentScreen = index;
+          });
+        },
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:mahir_bpjs/login_page.dart';
 import 'package:mahir_bpjs/splashscreen.dart';
 import 'package:mahir_bpjs/new_member.dart';
 import 'package:mahir_bpjs/new_user.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +37,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Nunito',
       ),
-      home: SplashPage(),
+      home: SplashScreen(
+          seconds: 3,
+          navigateAfterSeconds:SplashPage(),
+          image: new Image.asset('assets/images/img_splash_header.jpeg'),
+          photoSize: 150.0,
+          backgroundColor: Colors.blue,
+          useLoader: false,
+      ),
       routes: routes,
     );
   }
